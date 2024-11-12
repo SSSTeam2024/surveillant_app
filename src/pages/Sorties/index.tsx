@@ -66,13 +66,13 @@ const Sorties = () => {
       currentMonth === 2 ||
       (currentMonth === 3 && currentDay <= 31)
     ) {
-      setCalculatedTrimestre("2eme trimestre");
+      setCalculatedTrimestre("2ème trimestre");
     } else if (
       (currentMonth === 4 && currentDay >= 1) ||
       currentMonth === 5 ||
       (currentMonth === 6 && currentDay <= 30)
     ) {
-      setCalculatedTrimestre("3eme trimestre");
+      setCalculatedTrimestre("3ème trimestre");
     }
   }, []);
 

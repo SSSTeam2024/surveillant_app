@@ -29,11 +29,11 @@ const slice = createSlice({
     setCredentials: (
       state,
       {
-        payload: {  central },
+        payload: { surveillant },
       }: PayloadAction<{
-        central: any}>
+        surveillant: any}>
     ) => {
-      state.surveillant = central;
+      state.surveillant = surveillant;
     },
   },
 });

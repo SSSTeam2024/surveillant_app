@@ -11,17 +11,15 @@ import logo from "assets/images/sls-logo2.png";
 
 const ProfileDropdown = () => {
   const user = useSelector((state: RootState) => selectCurrentUser(state));
-
   const navigate = useNavigate();
 
   const logout = () => {
     axios
       .post(
-        `${process.env.REACT_APP_BASE_URL}/api/central/logout/${user._id}`,
+        `${process.env.REACT_APP_BASE_URL}/api/surveillants/logout/${user._id}`,
         {}
       )
       .then((res: any) => {
-        console.log(res);
         Cookies.remove("astk");
         navigate("/login");
       });
@@ -39,7 +37,7 @@ const ProfileDropdown = () => {
             <img className="rounded-circle" src={logo} width={100} />
             <span className="text-start ms-xl-2">
               <span className="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                {user?.nom_surveillant!}
+                {user?.prenom_surveillant!} {user?.nom_surveillant!}
               </span>
               {/* <span className="d-none d-xl-block ms-1 fs-13 text-muted user-name-sub-text">Founder</span> */}
             </span>
@@ -47,7 +45,7 @@ const ProfileDropdown = () => {
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-end">
           <h6 className="dropdown-header">
-            Welcome {user?.prenom_surveillant!}
+            Bienvenue {user?.prenom_surveillant!} {user?.nom_surveillant!}
           </h6>
           <Dropdown.Item href="/profile">
             <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>{" "}

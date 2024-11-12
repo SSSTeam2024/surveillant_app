@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 const AuthProtected = (props: any) => {
   const tokenc = Cookies.get("astk");
   const dispatch = useDispatch<any>();
-
+  console.log("token", tokenc);
   if (!tokenc) {
     return <Navigate to={{ pathname: "/login" }} />;
   }
@@ -23,6 +23,7 @@ const AuthProtected = (props: any) => {
       }
     )
     .then((res: any) => {
+      console.log("res", res);
       dispatch(setCredentials(res));
     })
     .catch((error: any) => {
